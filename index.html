@@ -14,7 +14,7 @@
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         .nav-btn.active { background-color: #1e40af; color: white; transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(30, 64, 175, 0.3); }
         .progress-bar { transition: width 1s ease-in-out; }
-        .timeline-item { border-left: 2px solid #e2e8f0; padding-left: 1.5rem; position: relative; margin-bottom: 1.5rem; }
+        .timeline-item { border-left: 2px solid #e2e8f0; padding-left: 1.5rem; position: relative; margin-bottom: 2rem; }
         .timeline-item::before { content: ''; width: 12px; height: 12px; background: #3b82f6; border-radius: 50%; position: absolute; left: -7px; top: 5px; }
     </style>
 </head>
@@ -91,38 +91,39 @@
             </div>
         </div>
 
-        <!-- 分頁 2: 診療進展 (詳細擴充版) -->
+        <!-- 分頁 2: 診療進展 (豐富擴充版) -->
         <div id="therapy" class="tab-content">
-            <h2 class="text-lg font-black text-purple-900 mb-4 px-2 flex items-center">
-                <i class="fas fa-calendar-check mr-2 text-purple-600"></i> 專業診療進度摘要
+            <h2 class="text-lg font-black text-purple-900 mb-6 px-2 flex items-center">
+                <i class="fas fa-calendar-check mr-2 text-purple-600"></i> 專業診療與觀察詳錄
             </h2>
             <div class="space-y-2">
                 
                 <!-- 04/24 -->
                 <div class="timeline-item">
-                    <h4 class="text-xs font-bold text-slate-800">115 / 04 / 24 語言治療紀錄</h4>
-                    <p class="text-[11px] text-slate-600 mt-2 leading-relaxed">
-                        ● <strong>構音矯正：</strong> 發現「ㄘ」音易誤發為捲舌音（如：草莓→草莓）。目前專注於單音練習，指導舌尖抵牙縫吐氣技巧。<br>
-                        ● <strong>語用衝動：</strong> 團體課時易與他人同步說話造成干擾。治療師建議以**「叫全名（鄭宇樂）」**方式來有效重啟其注意力，中斷其插話衝動。
-                    </p>
+                    <h4 class="text-xs font-bold text-indigo-900 bg-indigo-50 py-1 px-2 rounded inline-block">115 / 04 / 24 語言與語用發展</h4>
+                    <div class="text-[11px] text-slate-600 mt-2 space-y-2 leading-relaxed">
+                        <p>● <strong>構音細節：</strong> 宇樂習慣將平舌音「ㄘ」發為捲舌音「ㄔ」（如：草莓講成吵莓）。此為舌尖位置偏差，目前指導其<strong>「舌尖抵住牙縫吐氣」</strong>，先練習單音而非詞彙。</p>
+                        <p>● <strong>社交規則：</strong> 在團體對話時極易「同步化」，會跟著別人一起講，干擾對話秩序。對於普通提醒反應較慢，需<strong>「叫全名（鄭宇樂）」</strong>約 2-3 次始能有效中斷其衝動行為並切換注意力。</p>
+                    </div>
                 </div>
 
                 <!-- 04/29 -->
                 <div class="timeline-item">
-                    <h4 class="text-xs font-bold text-slate-800">115 / 04 / 29 職能與認知訓練</h4>
-                    <p class="text-[11px] text-slate-600 mt-2 leading-relaxed">
-                        ● <strong>語句描述：</strong> 在天氣與物品功能關聯（如：雨傘之用途）描述非常完整且具邏輯性。<br>
-                        ● <strong>數感邏輯：</strong> 處理加法拆解（如積木分組）時，尚無法單純透過口算，需仰賴**積木視覺化輔助**始能理解「剩餘」與「增加」之概念。<br>
-                        ● <strong>指令執行：</strong> 易受個人喜好（如特定動物）牽引而忽略規則。需老師給予更明確、不重複的指令指引。
-                    </p>
+                    <h4 class="text-xs font-bold text-indigo-900 bg-indigo-50 py-1 px-2 rounded inline-block">115 / 04 / 29 職能、認知與執行功能</h4>
+                    <div class="text-[11px] text-slate-600 mt-2 space-y-2 leading-relaxed">
+                        <p>● <strong>注意力待機：</strong> 聽取純語音指令的專注力約僅能維持 <strong>1.5 - 2 分鐘</strong>，超過後會出現明顯的感官尋求（摸牆壁、扣手指、眼神飄移）以維持醒覺度。</p>
+                        <p>● <strong>邏輯優勢 vs 數感弱勢：</strong> 對於「天氣與物品功能」的關聯描述極其完整，語句長且邏輯正確；但處理抽象加法時（如積木分組），尚無法口算，必須依賴<strong>視覺積木輔助</strong>進行「實體拆解」始能理解數量變化。</p>
+                        <p>● <strong>社交防禦心理：</strong> 觀察到有「愛告狀」行為。治療師分析此為宇樂感受到自己常被糾正，故透過抓別人的錯誤來建立自我補償與競爭安全感。</p>
+                    </div>
                 </div>
 
-                <!-- 行為衝突處理案例 -->
-                <div class="timeline-item">
-                    <h4 class="text-xs font-bold text-red-700">行為衝突處理與社交後設認知</h4>
-                    <p class="text-[11px] text-slate-600 mt-2 leading-relaxed italic border-l-2 border-red-200 pl-2">
-                        曾因排隊收東西被擋住而推同學。治療師冷靜引導後，宇樂能正確分析行為動機，並學習以「請借過」或「繞路」作為替代方案。展現出優異的自省與調整能力。
-                    </p>
+                <!-- 肢體衝突與行為反思 -->
+                <div class="timeline-item border-l-red-300">
+                    <h4 class="text-xs font-bold text-red-800 bg-red-50 py-1 px-2 rounded inline-block">關鍵行為衝突分析：肢體邊界與自省力</h4>
+                    <div class="text-[11px] text-slate-600 mt-2 space-y-2 leading-relaxed">
+                        <p>● <strong>事件分析（推頭事件）：</strong> 發生於收卡片階段。並非惡意攻擊，而是因為「同學擋住路徑」，在工作記憶過載與目標導向驅使下，大腦選擇了最原始的「排除障礙」方式。反映其在環境壓力下的執行功能崩潰。</p>
+                        <p>● <strong>後設認知潛力：</strong> 宇樂在冷靜後具備優異的反思能力。經治療師引導，他能正確回想動機、表達歉意，並想出替代方案（如：繞路或說請借過）。顯示其<strong>「受教性極高」</strong>，適合透過事後對談進行行為修正。</p>
+                    </div>
                 </div>
 
             </div>
@@ -135,7 +136,7 @@
             </h2>
             <div class="space-y-4">
                 <div class="bg-white p-5 rounded-3xl border-l-4 border-orange-500 shadow-sm">
-                    <h4 class="font-bold text-orange-700 text-sm mb-1">🥋 跆拳道 (訓練聽從與服從)</h4>
+                    <h4 class="font-bold text-orange-700 text-sm mb-1">🥋 跆拳道 (紀律與服從)</h4>
                     <p class="text-[10px] text-slate-600">已練習一個月，核心在於學習**服從教練指令**與身體煞車。透過大動作宣洩本體覺，減少校園內的無意識躁動。</p>
                 </div>
                 <div class="bg-white p-5 rounded-3xl border-l-4 border-blue-500 shadow-sm">
@@ -178,7 +179,7 @@
     </main>
 
     <footer class="fixed bottom-0 max-w-md w-full bg-white/95 backdrop-blur-md border-t border-slate-100 p-5 text-center">
-        <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest italic tracking-tighter">鄭宇樂發展進度數位報告 V13 | 僅供特教交流參考</p>
+        <p class="text-[9px] text-slate-400 font-black uppercase tracking-widest italic tracking-tighter">鄭宇樂發展進度數位報告 V14 | 僅供特教交流參考</p>
     </footer>
 </div>
 
