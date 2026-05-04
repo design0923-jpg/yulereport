@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>鄭宇樂：學生發展評估暨全方位成長計畫報告</title>
+    <title>鄭宇樂：發展進度與校園支持計畫報告</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -12,159 +12,177 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.4s ease-out; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .nav-btn.active { background-color: #1e40af; color: white; transform: scale(1.05); }
-        .sidebar-active { border-left: 4px solid #1e40af; background-color: #eff6ff; color: #1e40af; font-weight: 700; }
-        ::-webkit-scrollbar { width: 6px; }
+        .sidebar-btn.active { border-left: 4px solid #1e40af; background-color: #eff6ff; color: #1e40af; font-weight: 700; }
+        .mobile-btn.active { background-color: #1e40af; color: white; transform: scale(1.05); }
+        .progress-bar { transition: width 1.5s cubic-bezier(0.1, 0, 0.2, 1); }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .video-box { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 flex flex-col min-h-screen">
 
-    <!-- 頂部頁首：個人檔案與快速數據 -->
-    <header class="bg-indigo-900 text-white p-6 lg:p-10 shadow-lg relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20"></div>
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
+    <!-- 頁首：個案概要 -->
+    <header class="bg-[#1e1b4b] text-white p-6 lg:p-12 shadow-xl relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-80 h-84 bg-blue-500/10 rounded-full -mr-20 -mt-20"></div>
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
             <div class="flex items-center space-x-6">
-                <div class="w-20 h-20 bg-white/20 backdrop-blur-md rounded-3xl flex items-center justify-center border border-white/30 shadow-inner">
-                    <i class="fas fa-child-reaching text-4xl"></i>
+                <div class="w-24 h-24 bg-white/10 backdrop-blur-xl rounded-[2rem] flex items-center justify-center border border-white/20 shadow-2xl">
+                    <i class="fas fa-user-graduate text-4xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-3xl font-black tracking-tight">鄭宇樂 <span class="text-lg font-normal opacity-75">(4Y 6M)</span></h1>
-                    <p class="text-xs font-medium opacity-70 uppercase tracking-widest mt-1">Comprehensive Development & Learning Report</p>
+                    <h1 class="text-4xl font-black tracking-tight">鄭宇樂 <span class="text-xl font-light opacity-60">Yule Cheng</span></h1>
+                    <p class="text-sm font-bold text-blue-300 uppercase tracking-[0.3em] mt-2">4歲 6個月 | 綜合發展數位評估報告</p>
                 </div>
             </div>
-            <div class="flex flex-wrap justify-center gap-3">
-                <div class="bg-white/10 px-4 py-2 rounded-2xl border border-white/20 text-center min-w-[100px]">
-                    <div class="text-[10px] opacity-70 uppercase">總智商</div>
-                    <div class="text-xl font-black">101</div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <div class="bg-white/5 backdrop-blur-md px-6 py-3 rounded-3xl border border-white/10 text-center">
+                    <div class="text-[10px] opacity-60 uppercase font-black">認知 FSIQ</div>
+                    <div class="text-2xl font-black">101</div>
                 </div>
-                <div class="bg-emerald-500/30 px-4 py-2 rounded-2xl border border-emerald-500/40 text-center min-w-[100px]">
-                    <div class="text-[10px] opacity-70 uppercase">語文 PR</div>
-                    <div class="text-xl font-black text-emerald-300">87</div>
+                <div class="bg-emerald-500/20 backdrop-blur-md px-6 py-3 rounded-3xl border border-emerald-500/30 text-center">
+                    <div class="text-[10px] text-emerald-300 uppercase font-black">語文 PR</div>
+                    <div class="text-2xl font-black text-emerald-400">87</div>
                 </div>
-                <div class="bg-red-500/30 px-4 py-2 rounded-2xl border border-red-500/40 text-center min-w-[100px]">
-                    <div class="text-[10px] opacity-70 uppercase">記憶 PR</div>
-                    <div class="text-xl font-black text-red-300">4</div>
+                <div class="bg-red-500/20 backdrop-blur-md px-6 py-3 rounded-3xl border border-red-500/30 text-center">
+                    <div class="text-[10px] text-red-300 uppercase font-black">記憶 PR</div>
+                    <div class="text-2xl font-black text-red-400">4</div>
                 </div>
             </div>
         </div>
     </header>
 
-    <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col lg:flex-row p-4 lg:p-8 gap-8">
-        <!-- 側邊導覽 (電腦版) / 頂部導覽 (手機版) -->
-        <aside class="w-full lg:w-64 flex-shrink-0">
-            <nav class="flex lg:flex-col overflow-x-auto lg:overflow-x-visible no-scrollbar bg-white rounded-3xl p-2 lg:p-4 shadow-sm border border-slate-100 sticky top-4 gap-2">
-                <button onclick="switchTab('data', this)" class="nav-btn sidebar-active flex-1 lg:w-full flex items-center justify-center lg:justify-start px-4 py-3 rounded-2xl text-sm transition-all">
-                    <i class="fas fa-brain lg:mr-3"></i><span class="hidden lg:inline">數據診斷</span><span class="lg:hidden ml-1">數據</span>
+    <div class="max-w-7xl mx-auto w-full flex-1 flex flex-col lg:flex-row p-4 lg:p-10 gap-10">
+        
+        <!-- 側邊/頂部導覽 -->
+        <aside class="w-full lg:w-72 flex-shrink-0">
+            <nav class="flex lg:flex-col overflow-x-auto lg:overflow-x-visible bg-white rounded-[2.5rem] p-3 shadow-sm border border-slate-100 sticky top-6 gap-2 no-scrollbar">
+                <button onclick="switchTab('data', this)" class="sidebar-btn active flex-1 lg:w-full flex items-center px-6 py-4 rounded-2xl text-sm transition-all text-slate-400">
+                    <i class="fas fa-chart-pie mr-3"></i><span>數據診斷</span>
                 </button>
-                <button onclick="switchTab('therapy', this)" class="nav-btn flex-1 lg:w-full flex items-center justify-center lg:justify-start px-4 py-3 rounded-2xl text-sm text-slate-400 transition-all">
-                    <i class="fas fa-stethoscope lg:mr-3"></i><span class="hidden lg:inline">診療詳錄</span><span class="lg:hidden ml-1">診療</span>
+                <button onclick="switchTab('therapy', this)" class="sidebar-btn flex-1 lg:w-full flex items-center px-6 py-4 rounded-2xl text-sm transition-all text-slate-400">
+                    <i class="fas fa-stethoscope mr-3"></i><span>診療詳錄</span>
                 </button>
-                <button onclick="switchTab('video', this)" class="nav-btn flex-1 lg:w-full flex items-center justify-center lg:justify-start px-4 py-3 rounded-2xl text-sm text-slate-400 transition-all">
-                    <i class="fas fa-video lg:mr-3"></i><span class="hidden lg:inline">影像分析</span><span class="lg:hidden ml-1">影像</span>
+                <button onclick="switchTab('video', this)" class="sidebar-btn flex-1 lg:w-full flex items-center px-6 py-4 rounded-2xl text-sm transition-all text-slate-400">
+                    <i class="fas fa-film mr-3"></i><span>影像分析</span>
                 </button>
-                <button onclick="switchTab('learning', this)" class="nav-btn flex-1 lg:w-full flex items-center justify-center lg:justify-start px-4 py-3 rounded-2xl text-sm text-slate-400 transition-all">
-                    <i class="fas fa-rocket lg:mr-3"></i><span class="hidden lg:inline">多元開發</span><span class="lg:hidden ml-1">多元</span>
+                <button onclick="switchTab('learning', this)" class="sidebar-btn flex-1 lg:w-full flex items-center px-6 py-4 rounded-2xl text-sm transition-all text-slate-400">
+                    <i class="fas fa-bolt mr-3"></i><span>多元開發</span>
                 </button>
-                <button onclick="switchTab('home', this)" class="nav-btn flex-1 lg:w-full flex items-center justify-center lg:justify-start px-4 py-3 rounded-2xl text-sm text-slate-400 transition-all">
-                    <i class="fas fa-house-user lg:mr-3"></i><span class="hidden lg:inline">支持建議</span><span class="lg:hidden ml-1">建議</span>
+                <button onclick="switchTab('support', this)" class="sidebar-btn flex-1 lg:w-full flex items-center px-6 py-4 rounded-2xl text-sm transition-all text-slate-400">
+                    <i class="fas fa-hand-holding-heart mr-3"></i><span>支持策略</span>
                 </button>
             </nav>
         </aside>
 
-        <!-- 主要內容區域 -->
-        <main class="flex-1">
+        <!-- 內容區域 -->
+        <main class="flex-1 min-w-0">
             
             <!-- 分頁 1: 數據診斷 -->
-            <div id="data" class="tab-content active space-y-6">
-                <section class="bg-white p-6 lg:p-8 rounded-[2rem] shadow-sm border border-slate-100">
-                    <h2 class="text-xl font-black text-indigo-900 mb-6 flex items-center">
-                        <i class="fas fa-chart-bar mr-3 text-blue-500"></i> 魏氏幼兒智力測驗 (WPPSI) 深度剖析
+            <div id="data" class="tab-content active space-y-8">
+                <section class="bg-white p-8 lg:p-12 rounded-[3rem] shadow-sm border border-slate-100">
+                    <h2 class="text-2xl font-black text-indigo-950 mb-8 flex items-center">
+                        <i class="fas fa-brain mr-4 text-blue-600"></i> 魏氏幼兒智力深度剖析 (WPPSI)
                     </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        <div class="space-y-6">
-                            {[
-                                { l: '語文理解 (VCI)', v: 87, c: 'bg-emerald-500', d: 'PR 87：邏輯、辭彙與口語表達能力遠超同儕。' },
-                                { l: '視覺空間 (VSI)', v: 84, c: 'bg-teal-500', d: 'PR 84：對積木、空間方位與邏輯編程（Code.org）具天賦。' },
-                                { l: '全量表智商 (FSIQ)', v: 53, c: 'bg-indigo-500', d: 'PR 53：整體認知能力處於同齡平均水平。' },
-                                { l: '處理速度 (PSI)', v: 23, c: 'bg-amber-500', d: 'PR 23：視覺搜尋與手眼協調速度偏低。' },
-                                { l: '工作記憶 (WMI)', v: 4, c: 'bg-red-500', d: 'PR 4：指令暫存空間嚴重不足，為目前發展瓶頸。' }
-                            ].map(s => `
-                                <div>
-                                    <div class="flex justify-between items-end mb-2">
-                                        <span class="text-xs font-bold text-slate-500 uppercase">${s.l}</span>
-                                        <span class="text-sm font-black text-slate-800">PR ${s.v}</span>
-                                    </div>
-                                    <div class="h-3 w-full bg-slate-100 rounded-full overflow-hidden shadow-inner">
-                                        <div class="${s.c} h-full rounded-full transition-all duration-1000" style="width: ${s.v}%"></div>
-                                    </div>
-                                    <p class="text-[11px] text-slate-400 mt-2">${s.d}</p>
+                    <div class="grid grid-cols-1 xl:grid-cols-5 gap-12">
+                        <div class="xl:col-span-3 space-y-8">
+                            <div>
+                                <div class="flex justify-between items-end mb-3">
+                                    <span class="text-xs font-black text-slate-500 uppercase tracking-widest">語文理解 (VCI)</span>
+                                    <span class="text-lg font-black text-emerald-600">PR 87</span>
                                 </div>
-                            `).join('')}
+                                <div class="h-4 w-full bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                                    <div class="progress-bar h-full bg-emerald-500 rounded-full" style="width: 87%"></div>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-2">優點：辭彙豐富、能理解複雜邏輯，適合透過語言說明來引導行為。</p>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-end mb-3">
+                                    <span class="text-xs font-black text-slate-500 uppercase tracking-widest">視覺空間 (VSI)</span>
+                                    <span class="text-lg font-black text-teal-600">PR 84</span>
+                                </div>
+                                <div class="h-4 w-full bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                                    <div class="progress-bar h-full bg-teal-500 rounded-full" style="width: 84%"></div>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-2">優點：對積木、空間方位感強，Code.org 邏輯編程表現極佳。</p>
+                            </div>
+                            <div>
+                                <div class="flex justify-between items-end mb-3">
+                                    <span class="text-xs font-black text-slate-500 uppercase tracking-widest text-red-500">工作記憶 (WMI)</span>
+                                    <span class="text-lg font-black text-red-600">PR 4</span>
+                                </div>
+                                <div class="h-4 w-full bg-slate-100 rounded-full overflow-hidden shadow-inner">
+                                    <div class="progress-bar h-full bg-red-500 rounded-full" style="width: 4%"></div>
+                                </div>
+                                <p class="text-xs text-slate-500 mt-2 font-bold">挑戰：大腦暫存空間嚴重不足，指令超過 2 步即會「當機」產生情緒。</p>
+                            </div>
                         </div>
-                        <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100">
-                            <h3 class="font-bold text-slate-700 mb-4 flex items-center"><i class="fas fa-info-circle mr-2 text-blue-500"></i> 行為機理解讀</h3>
-                            <p class="text-sm text-slate-600 leading-relaxed">
-                                宇樂的「認知不一致」是行為衝突的根源。他擁有**極高的邏輯需求**，但大腦的**「快取記憶體 (RAM)」**只有 PR 4。
+                        <div class="xl:col-span-2 bg-blue-50 p-8 rounded-[2.5rem] border border-blue-100 flex flex-col justify-center">
+                            <h3 class="font-black text-blue-900 mb-4 flex items-center text-lg"><i class="fas fa-lightbulb mr-3"></i> 給園長的科學解讀</h3>
+                            <p class="text-sm text-blue-800 leading-[1.8] font-medium">
+                                宇樂的大腦像是一台擁有**頂級處理器 (CPU)** 但**記憶體 (RAM) 極小**的電腦。
                                 <br><br>
-                                這導致他在處理多重指令或複雜轉場時，系統會瞬間「溢位」導致當機，產生放空、自我刺激或情緒衝突。他並非故犯規則，而是硬體頻寬限制了其優異處理器（語文/空間）的發揮。
+                                當環境刺激過多（如嘈雜教室）或指令過於複合時，他的系統會瞬間「溢位」導致崩潰。這並非調皮，而是大腦在處理資訊時的硬體限制，需要我們透過「單一指令」來協助他運行。
                             </p>
                         </div>
                     </div>
                 </section>
             </div>
 
-            <!-- 分頁 2: 診療進展 -->
-            <div id="therapy" class="tab-content space-y-6">
-                <section class="bg-white p-6 lg:p-8 rounded-[2rem] shadow-sm border border-slate-100">
-                    <h2 class="text-xl font-black text-purple-900 mb-8 flex items-center">
-                        <i class="fas fa-calendar-check mr-3 text-purple-500"></i> 專業診療與觀察記錄詳析
+            <!-- 分頁 2: 診療詳錄 -->
+            <div id="therapy" class="tab-content space-y-8">
+                <section class="bg-white p-8 lg:p-12 rounded-[3rem] shadow-sm border border-slate-100">
+                    <h2 class="text-2xl font-black text-purple-950 mb-10 flex items-center">
+                        <i class="fas fa-stethoscope mr-4 text-purple-600"></i> 專業診療與觀察記錄詳錄
                     </h2>
-                    
-                    <!-- 115/04/24 -->
-                    <div class="relative pl-8 pb-8 border-l-2 border-purple-100 mb-8">
-                        <div class="absolute left-[-11px] top-0 w-5 h-5 bg-purple-500 rounded-full border-4 border-white shadow-sm"></div>
-                        <div class="bg-purple-50 p-4 rounded-2xl inline-block mb-4">
-                            <span class="text-purple-900 font-bold text-sm">115 / 04 / 24 語言與語用發展</span>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                            <div className="space-y-4">
-                                <h4 className="font-bold text-slate-800 flex items-center"><i class="fas fa-microphone mr-2 text-purple-400"></i> 構音矯正</h4>
-                                <p class="text-slate-600 leading-relaxed">
-                                    宇樂習慣將平舌音「ㄘ」發為捲舌音「ㄔ」（如：草莓講成吵莓）。此為舌尖位置偏差。
-                                    <br><strong>● 治療回饋：</strong> 目前指導其「舌尖抵住牙縫吐氣」練習單音。家長宜協助其感受氣流在前齒而非深處噴出。
-                                </p>
-                            </div>
-                            <div className="space-y-4">
-                                <h4 className="font-bold text-slate-800 flex items-center"><i class="fas fa-comments mr-2 text-purple-400"></i> 社交語用</h4>
-                                <p class="text-slate-600 leading-relaxed">
-                                    在團體中極易出現「搶話同步化」行為。
-                                    <br><strong>● 分析：</strong> 因工作記憶弱，他一旦想到點子，若不立刻說出就會忘記，導致其衝動地干擾他人。
-                                    <br><strong>● 策略：</strong> 必須「叫全名（鄭宇樂）」約 2-3 次始能有效重啟注意力，暫停其同步說話。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- 115/04/29 -->
-                    <div class="relative pl-8 pb-4 border-l-2 border-purple-100">
-                        <div class="absolute left-[-11px] top-0 w-5 h-5 bg-blue-500 rounded-full border-4 border-white shadow-sm"></div>
-                        <div class="bg-blue-50 p-4 rounded-2xl inline-block mb-4">
-                            <span class="text-blue-900 font-bold text-sm">115 / 04 / 29 職能認知與執行功能</span>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
-                            <div className="space-y-4">
-                                <h4 className="font-bold text-slate-800 flex items-center"><i class="fas fa-brain mr-2 text-blue-400"></i> 注意力與數感</h4>
-                                <p class="text-slate-600 leading-relaxed">
-                                    <strong>● 注意力：</strong> 純聽指令的專注力極限為 2 分鐘。超時後會出現摳指甲、摸牆壁等感官尋求行為以維持清醒。
-                                    <br><strong>● 數感弱勢：</strong> 處理抽象加法拆解時（如6人分組），尚無法口算，必須依賴視覺積木輔助實體化。
-                                </p>
+                    <div class="space-y-12">
+                        <!-- 04/24 -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            <div class="md:col-span-1">
+                                <div class="bg-purple-600 text-white p-4 rounded-3xl text-center shadow-lg">
+                                    <div class="text-[10px] opacity-75 uppercase font-bold">115 / 04 / 24</div>
+                                    <div class="text-lg font-black">語言治療</div>
+                                </div>
                             </div>
-                            <div className="space-y-4">
-                                <h4 className="font-bold text-slate-800 flex items-center"><i class="fas fa-shield-halved mr-2 text-blue-400"></i> 社交防禦心理</h4>
-                                <p class="text-slate-600 leading-relaxed">
-                                    <strong>● 告狀行為：</strong> 治療師洞察此為宇樂因長期被糾正產生的補償心理。透過抓別人的錯誤（如同學靠牆睡覺）來建立競爭安全感，顯示其內在自尊心較脆弱。
-                                </p>
+                            <div class="md:col-span-3 space-y-4">
+                                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                                    <h4 class="font-black text-slate-800 mb-2 flex items-center"><i class="fas fa-volume-up mr-2 text-purple-500"></i> 構音矯正細節</h4>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        宇樂習慣將平舌音「ㄘ」發為捲舌音「ㄔ」（如：草莓講成吵莓）。此為舌尖位置偏差。治療師建議在家練習「舌尖抵住牙縫吐氣」發出「ㄘ——」單音。
+                                    </p>
+                                </div>
+                                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                                    <h4 class="font-black text-slate-800 mb-2 flex items-center"><i class="fas fa-users-slash mr-2 text-purple-500"></i> 社交語用：插話行為</h4>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        在團體練習時，宇樂極易受興奮情緒驅使，跟著別的孩子「同步說話」。這源於他想表達的動機極強，但缺乏「輪流」的煞車機制。
+                                        <br><strong>建議策略：</strong> 提醒 2-3 次無效時，可**叫全名「鄭宇樂」**，這對他而言是有效的中斷訊號。
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 04/29 -->
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                            <div class="md:col-span-1">
+                                <div class="bg-blue-600 text-white p-4 rounded-3xl text-center shadow-lg">
+                                    <div class="text-[10px] opacity-75 uppercase font-bold">115 / 04 / 29</div>
+                                    <div class="text-lg font-black">職能認知</div>
+                                </div>
+                            </div>
+                            <div class="md:col-span-3 space-y-4">
+                                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                                    <h4 class="font-black text-slate-800 mb-2 flex items-center"><i class="fas fa-clock mr-2 text-blue-500"></i> 注意力待機時長</h4>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        宇樂聽取規則的純專注力僅能維持 **1.5 - 2 分鐘**。超時後會開始摸牆壁、摳指甲。這是一種大腦嘗試透過「感官尋求」來維持清醒的補償行為。
+                                    </p>
+                                </div>
+                                <div class="bg-slate-50 p-6 rounded-3xl border border-slate-100">
+                                    <h4 class="font-black text-slate-800 mb-2 flex items-center"><i class="fas fa-calculator mr-2 text-blue-500"></i> 數感概念：加法挑戰</h4>
+                                    <p class="text-sm text-slate-600 leading-relaxed">
+                                        宇樂語句完整度優於同儕，但處理抽象數量拆解（如 6 人分組）時尚無法口算，必須依賴**積木視覺化輔助**實體化操作始能理解。
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -172,36 +190,40 @@
             </div>
 
             <!-- 分頁 3: 影像分析 -->
-            <div id="video" class="tab-content space-y-6">
-                <section class="bg-white p-6 lg:p-8 rounded-[2rem] shadow-sm border border-slate-100">
-                    <h2 class="text-xl font-black text-rose-900 mb-8 flex items-center">
-                        <i class="fas fa-play-circle mr-3 text-rose-500"></i> 校園與診療行為影像詳析
+            <div id="video" class="tab-content space-y-8">
+                <section class="bg-white p-8 lg:p-12 rounded-[3rem] shadow-sm border border-slate-100">
+                    <h2 class="text-2xl font-black text-rose-950 mb-10 flex items-center">
+                        <i class="fas fa-video mr-4 text-rose-600"></i> 行為影像深度解析 (基於治療師回饋)
                     </h2>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- 影片分析 1 -->
-                        <div class="bg-slate-50 rounded-3xl p-6 border border-slate-100">
-                            <h4 class="font-bold text-red-700 mb-4 flex items-center"><i class="fas fa-bolt mr-2"></i> 事件：肢體衝突與後設認知</h4>
-                            <div class="aspect-video bg-black rounded-2xl mb-4 flex items-center justify-center text-white/50 text-xs">
-                                [ 參閱 Drive: 肢體衝突處理影像 ]
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <!-- 分析 1 -->
+                        <div class="space-y-6">
+                            <div class="video-box aspect-video rounded-[2.5rem] flex items-center justify-center text-white/20 text-4xl shadow-2xl">
+                                <i class="fas fa-user-friends"></i>
                             </div>
-                            <div class="space-y-3 text-xs leading-relaxed">
-                                <p><strong>● 情境：</strong> 宇樂因路徑被同學擋住，伸手推了同學的頭。</p>
-                                <p><strong>● 深度分析：</strong> 此為執行功能崩潰。目標導向（收卡片）大於人際邊界。並非惡意攻擊，而是為了排除物理障礙。</p>
-                                <p><strong>● 亮點：</strong> 宇樂在事後冷靜期能正確分析動機、道歉並想出替代方案（如：繞路或口頭請借過），顯示其「受教性」極高。</p>
+                            <div class="p-4">
+                                <h4 class="font-black text-red-700 text-lg mb-4 flex items-center"><i class="fas fa-hand-fist mr-2"></i> 事件：肢體衝突與自省</h4>
+                                <div class="text-sm text-slate-600 space-y-4 leading-relaxed">
+                                    <p>● <strong>發生背景：</strong> 活動結束收卡片時，同學擋住路徑。</p>
+                                    <p>● <strong>行為動機：</strong> 並非惡意攻擊。因目標導向（想趕快做完）大於社交邊界，大腦選擇以原始物理方式排除障礙。</p>
+                                    <p>● <strong>心理亮點：</strong> 宇樂事後具備**優異的後設認知**。引導後能正確分析動機並誠實道歉，受教性極高，適合事後對談輔導。</p>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- 影片分析 2 -->
-                        <div class="bg-slate-50 rounded-3xl p-6 border border-slate-100">
-                            <h4 class="font-bold text-orange-700 mb-4 flex items-center"><i class="fas fa-walking mr-2"></i> 事件：轉場感官尋求</h4>
-                            <div class="aspect-video bg-black rounded-2xl mb-4 flex items-center justify-center text-white/50 text-xs">
-                                [ 參閱 Drive: 午休/走路影像 ]
+                        <!-- 分析 2 -->
+                        <div class="space-y-6">
+                            <div class="video-box aspect-video rounded-[2.5rem] flex items-center justify-center text-white/20 text-4xl shadow-2xl">
+                                <i class="fas fa-person-walking"></i>
                             </div>
-                            <div class="space-y-3 text-xs leading-relaxed">
-                                <p><strong>● 午休打拳：</strong> 安靜環境下大腦覺醒度不足，他透過跆拳道動作自我刺激以維持醒覺。</p>
-                                <p><strong>● 行進踩腳：</strong> 為尋求強烈物理回饋感（本體覺）。</p>
-                                <p><strong>● 策略建議：</strong> 走路時讓他雙手拿重物（如：幫忙拿水杯）增加肌肉張力回饋，可大幅減少躁動。</p>
+                            <div class="p-4">
+                                <h4 class="font-black text-orange-700 text-lg mb-4 flex items-center"><i class="fas fa-running mr-2"></i> 事件：轉場感官尋求分析</h4>
+                                <div class="text-sm text-slate-600 space-y-4 leading-relaxed">
+                                    <p>● <strong>午休打拳：</strong> 安靜環境下大腦覺醒度不足，他透過動作維持意識醒覺。</p>
+                                    <p>● <strong>行進踩腳：</strong> 尋求「本體覺」強烈刺激，且空間邊界感尚未內化。</p>
+                                    <p>● <strong>告狀行為：</strong> 治療師分析此為因常被糾正而產生的「心理補償」，透過糾正別人來重拾權威感，顯示內在自尊需要支持。</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -209,86 +231,111 @@
             </div>
 
             <!-- 分頁 4: 多元開發 -->
-            <div id="learning" class="tab-content space-y-6">
-                <section class="bg-white p-6 lg:p-8 rounded-[2rem] shadow-sm border border-slate-100">
-                    <h2 class="text-xl font-black text-emerald-900 mb-8 flex items-center">
-                        <i class="fas fa-star-half-stroke mr-3 text-emerald-500"></i> 外部多元補強計畫與目標
+            <div id="learning" class="tab-content space-y-8">
+                <section class="bg-white p-8 lg:p-12 rounded-[3rem] shadow-sm border border-slate-100">
+                    <h2 class="text-2xl font-black text-emerald-950 mb-10 flex items-center">
+                        <i class="fas fa-rocket mr-4 text-emerald-600"></i> 校外多元補強課程進展
                     </h2>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="p-6 bg-orange-50 rounded-3xl border border-orange-100">
-                            <h4 class="font-bold text-orange-700 mb-3 flex items-center"><i class="fas fa-user-ninja mr-2"></i> 跆拳道 (1個月+)</h4>
-                            <p class="text-[11px] text-slate-600 leading-relaxed">
-                                訓練核心：服從權威指令、意志力、動作抑制。利用高強度宣洩滿足其本體覺需求。
-                            </p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="bg-orange-50 p-8 rounded-[2.5rem] border border-orange-100 shadow-sm">
+                            <div class="w-12 h-12 bg-orange-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fas fa-mitten"></i>
+                            </div>
+                            <h4 class="font-black text-orange-950 mb-3">🥋 跆拳道 (建立紀律)</h4>
+                            <p class="text-xs text-orange-800/70 leading-relaxed">已練習一個多月，重點在於學習**服從教練指令**與**身體煞車**。透過大肢體能量釋放穩定身心。</p>
                         </div>
-                        <div class="p-6 bg-blue-50 rounded-3xl border border-blue-100">
-                            <h4 class="font-bold text-blue-700 mb-3 flex items-center"><i class="fas fa-person-walking-dashed-line mr-2"></i> 雲門舞集 (律動)</h4>
-                            <p class="text-[11px] text-slate-600 leading-relaxed">
-                                訓練核心：肢體感知、社交距離。學習建立「隱形防護罩」，改善排隊時的物理邊界感。
-                            </p>
+                        <div class="bg-blue-50 p-8 rounded-[2.5rem] border border-blue-100 shadow-sm">
+                            <div class="w-12 h-12 bg-blue-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fas fa-street-view"></i>
+                            </div>
+                            <h4 class="font-black text-blue-950 mb-3">🩰 雲門舞集 (肢體感知)</h4>
+                            <p class="text-xs text-blue-800/70 leading-relaxed">核心目標為建立**「社交距離泡泡」**。改善在校排隊走路時，因空間感不足而產生的碰撞與踩腳行為。</p>
                         </div>
-                        <div class="p-6 bg-purple-50 rounded-3xl border border-purple-100">
-                            <h4 class="font-bold text-purple-700 mb-3 flex items-center"><i class="fas fa-drum mr-2"></i> 打擊樂 (即將)</h4>
-                            <p class="text-[11px] text-slate-600 leading-relaxed">
-                                訓練核心：聽覺工作記憶、節奏序列。直接針對大腦 RAM 進行物理性的連續資訊處理訓練。
-                            </p>
+                        <div class="bg-purple-50 p-8 rounded-[2.5rem] border border-purple-100 shadow-sm">
+                            <div class="w-12 h-12 bg-purple-600 text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                <i class="fas fa-drum"></i>
+                            </div>
+                            <h4 class="font-black text-purple-950 mb-3">🥁 打擊樂 (記憶補強)</h4>
+                            <p class="text-xs text-purple-800/70 leading-relaxed">即將開始。利用節奏序列訓練大腦處理**「連續聽覺序列」**，直接針對工作記憶弱項進行物理補強。</p>
                         </div>
                     </div>
                 </section>
             </div>
 
             <!-- 分頁 5: 支持建議 -->
-            <div id="home" class="tab-content space-y-6">
-                <section class="bg-rose-50 p-6 lg:p-8 rounded-[2rem] border border-rose-100 mb-6">
-                    <h3 class="font-black text-rose-800 mb-4 flex items-center uppercase tracking-widest text-sm">
-                        <i class="fas fa-house-chimney-user mr-2"></i> 家庭端與家長配合計畫
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-rose-900 font-medium">
-                        <p>● <strong>深度陪伴：</strong> 父母全程陪同各項早療與補強課程，並於課後與其進行「社會故事回顧」。</p>
-                        <p>● <strong>居家訓練：</strong> 每日練習桌遊（輪流、等待、規則）；利用 Code.org 討論行為 Bug 並共商優化對策。</p>
+            <div id="home" class="tab-content space-y-8">
+                <section class="bg-rose-50 p-8 lg:p-12 rounded-[3rem] border border-rose-100 mb-8">
+                    <h3 class="font-black text-rose-900 text-xl mb-6 flex items-center"><i class="fas fa-home mr-3"></i> 家庭支持系統與家長參與</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="bg-white/50 p-6 rounded-3xl border border-rose-200">
+                            <h4 class="font-black text-rose-800 mb-2">父母深度陪同</h4>
+                            <p class="text-sm text-rose-700/80 leading-relaxed">全程參與所有外部課程，並在日常中透過各式**桌遊**練習「等待、規則遵從與挫折忍耐」。</p>
+                        </div>
+                        <div class="bg-white/50 p-6 rounded-3xl border border-rose-200">
+                            <h4 class="font-black text-rose-800 mb-2">邏輯引導法</h4>
+                            <p class="text-sm text-rose-700/80 leading-relaxed">利用 Code.org 的邏輯思維，將宇樂的行為問題視為「Bug」，共同討論優化大腦「程式碼」。</p>
+                        </div>
                     </div>
                 </section>
 
-                <section class="bg-white p-6 lg:p-8 rounded-[2rem] shadow-sm border border-slate-100">
-                    <h3 class="font-black text-slate-800 mb-6 flex items-center"><i class="fas fa-clipboard-list mr-3 text-green-500"></i> 給園長與老師的具體建議</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start bg-slate-50 p-5 rounded-2xl">
-                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-4"></div>
-                            <p class="text-xs text-slate-600"><strong>賦予明確任務：</strong> 在最易躁動的等待/轉場時間，指派發餐盤等小幫手工作。當大腦有「目標標籤」時，躁動行為會因專注任務而消失。</p>
+                <section class="bg-white p-8 lg:p-12 rounded-[3rem] shadow-sm border border-slate-100">
+                    <h3 class="font-black text-slate-900 text-xl mb-8 flex items-center"><i class="fas fa-clipboard-list mr-4 text-green-600"></i> 給老師的校園引導具體建議 (IEP參考)</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex items-start bg-slate-50 p-6 rounded-3xl">
+                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mr-4 flex-shrink-0"><i class="fas fa-tasks text-xs"></i></div>
+                            <div>
+                                <h5 class="font-black text-sm mb-1">賦予明確任務 (小幫手)</h5>
+                                <p class="text-xs text-slate-500 leading-relaxed">在最易躁動的轉場時間，請他發餐盤或教具。大腦有「目標標籤」時，躁動行為會因專注任務而顯著減少。</p>
+                            </div>
                         </div>
-                        <div class="flex items-start bg-slate-50 p-5 rounded-2xl">
-                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-4"></div>
-                            <p class="text-xs text-slate-600"><strong>指令單一化：</strong> 一次只給一個指令。確認他眼神對接、完成後再給下一步。這能規避工作記憶 PR 4 的硬體限制。</p>
+                        <div class="flex items-start bg-slate-50 p-6 rounded-3xl">
+                            <div class="w-8 h-8 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center mr-4 flex-shrink-0"><i class="fas fa-eye text-xs"></i></div>
+                            <div>
+                                <h5 class="font-black text-sm mb-1">指令單一化與眼神對接</h5>
+                                <p class="text-xs text-slate-500 leading-relaxed">因工作記憶 PR 4 的硬體限制，請一次只給一個指令（如：收餐盒），確認完成後再下達下一步（如：排隊）。</p>
+                            </div>
                         </div>
-                        <div class="flex items-start bg-slate-50 p-5 rounded-2xl">
-                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 mr-4"></div>
-                            <p class="text-xs text-slate-600"><strong>正向標籤重塑：</strong> 宇樂很愛面子，當他做錯事並道歉時，請在團體面前高度稱讚他「很誠實、有責任感」。正向連結能讓他更願意遵守規範。</p>
+                        <div class="flex items-start bg-slate-50 p-6 rounded-3xl">
+                            <div class="w-8 h-8 bg-green-100 text-green-600 rounded-xl flex items-center justify-center mr-4 flex-shrink-0"><i class="fas fa-smile text-xs"></i></div>
+                            <div>
+                                <h5 class="font-black text-sm mb-1">正向標籤與重塑自尊</h5>
+                                <p class="text-xs text-slate-500 leading-relaxed">宇樂極愛面子，當他做錯事並道歉時，請給予高度公開稱讚。正向肯定能讓他更願意遵守規範並放下競爭防禦。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start bg-slate-50 p-6 rounded-3xl">
+                            <div class="w-8 h-8 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center mr-4 flex-shrink-0"><i class="fas fa-location-dot text-xs"></i></div>
+                            <div>
+                                <h5 class="font-black text-sm mb-1">物理定位視覺化</h5>
+                                <p class="text-xs text-slate-500 leading-relaxed">在地板標示固定格子或貼色帶。利用其強大的空間感，幫助他建立可見的「人際距離」概念。</p>
+                            </div>
                         </div>
                     </div>
                 </section>
             </div>
 
             <!-- 底部連結 -->
-            <div class="mt-8 mb-12">
-                <a href="https://drive.google.com/drive/folders/1Q2PGxh3zs8npHxJNc4K_7TFySNg84h_H?usp=sharing" target="_blank" class="w-full flex items-center justify-between p-6 bg-slate-900 text-white rounded-[2rem] shadow-xl transform transition hover:scale-[1.01] active:scale-95 group">
+            <div class="mt-12 mb-16">
+                <a href="https://drive.google.com/drive/folders/1Q2PGxh3zs8npHxJNc4K_7TFySNg84h_H?usp=sharing" target="_blank" class="w-full flex items-center justify-between p-8 bg-[#0f172a] text-white rounded-[3rem] shadow-2xl hover:shadow-blue-500/20 transition-all group">
                     <div class="flex items-center">
-                        <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center mr-4">
-                            <i class="fas fa-folder-open text-blue-400"></i>
+                        <div class="w-16 h-16 bg-blue-600 rounded-[1.5rem] flex items-center justify-center mr-6 shadow-xl group-hover:scale-110 transition-transform">
+                            <i class="fas fa-folder-open text-2xl"></i>
                         </div>
                         <div>
-                            <div class="text-sm font-bold">開啟 Google Drive 資料庫</div>
-                            <div class="text-[10px] opacity-50">內含成大報告、診所錄音、才藝實錄與行為影片</div>
+                            <div class="text-lg font-black">開啟 Google Drive 詳細檔案庫</div>
+                            <div class="text-xs opacity-50 font-medium">內含成大報告、診所錄音、各項才藝實錄與行為影像</div>
                         </div>
                     </div>
-                    <i class="fas fa-chevron-right opacity-30 group-hover:opacity-100 transition-all"></i>
+                    <div class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center group-hover:translate-x-2 transition-transform">
+                        <i class="fas fa-chevron-right text-sm"></i>
+                    </div>
                 </a>
             </div>
         </main>
     </div>
 
-    <!-- 頁腳 -->
-    <footer class="bg-white/95 backdrop-blur-md border-t border-slate-100 p-6 text-center text-[10px] text-slate-400 font-bold uppercase tracking-widest italic sticky bottom-0 z-50">
-        鄭宇樂發展進度數位報告 V15 | 僅供特教引導與親師交流用途
+    <!-- 固定頁腳 -->
+    <footer class="bg-white/95 backdrop-blur-md border-t border-slate-200 p-6 text-center text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] italic sticky bottom-0 z-50">
+        鄭宇樂全方位發展進度報告 V16 | 僅供特教引導與親師交流用途
     </footer>
 
     <script>
@@ -297,18 +344,18 @@
             document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
 
-            // 切換側邊按鈕樣式
-            document.querySelectorAll('.nav-btn').forEach(btn => {
-                btn.classList.remove('sidebar-active', 'active', 'bg-indigo-900', 'text-white');
-                btn.classList.add('text-slate-400');
+            // 重設所有導覽按鈕
+            document.querySelectorAll('.sidebar-btn').forEach(btn => {
+                btn.classList.remove('sidebar-btn', 'active', 'sidebar-active');
+                btn.classList.add('sidebar-btn', 'text-slate-400');
             });
+            
+            // 設定當前按鈕活性
             el.classList.remove('text-slate-400');
             el.classList.add('sidebar-active', 'active');
             
-            // 手機版自動捲動到頂部
-            if(window.innerWidth < 1024) {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            // 螢幕捲動至頂部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
 
